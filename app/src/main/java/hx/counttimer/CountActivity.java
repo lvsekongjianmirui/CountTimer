@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -40,7 +41,7 @@ public class CountActivity extends AppCompatActivity {
             public void onClick(View view) {
             }
         });
-
+        Log.v("","");
         countAdapter = new CountAdapter(dataList,CountActivity.this);
         lv.setAdapter(countAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
