@@ -43,7 +43,7 @@ public class CountActivity extends AppCompatActivity {
                 Toast.makeText(CountActivity.this,"tebranch",Toast.LENGTH_SHORT).show();
             }
         });
-
+        btn.setClickable(false);
         countAdapter = new CountAdapter(dataList,CountActivity.this);
         lv.setAdapter(countAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
