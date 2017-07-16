@@ -55,10 +55,7 @@ public class TimerService extends Service {
                 countDownTimerList.get(i).cancel();
             }
             startCounter(mapData);
-            startCounter(mapData);
-            startCounter(mapData);
         }
-
     }
     private List<CountDownTimer> countDownTimerList = new ArrayList<>();
     private void startCounter(final Map<String,CountBean> secondMap) {
