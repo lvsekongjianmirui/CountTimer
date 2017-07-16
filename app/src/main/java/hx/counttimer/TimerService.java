@@ -55,6 +55,8 @@ public class TimerService extends Service {
                 countDownTimerList.get(i).cancel();
             }
             startCounter(mapData);
+            startCounter(mapData);
+            startCounter(mapData);
         }
 
     }
