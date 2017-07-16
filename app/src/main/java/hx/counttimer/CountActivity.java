@@ -39,9 +39,6 @@ public class CountActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(CountActivity.this, "test", Toast.LENGTH_SHORT).show();
-                Toast.makeText(CountActivity.this,"testbranch",Toast.LENGTH_SHORT).show();
-                Toast.makeText(CountActivity.this,"tebranch",Toast.LENGTH_SHORT).show();
             }
         });
         btn.setClickable(false);
