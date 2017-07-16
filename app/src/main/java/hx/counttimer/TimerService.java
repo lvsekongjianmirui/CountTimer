@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.CountDownTimer;
 import android.os.IBinder;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +46,7 @@ public class TimerService extends Service {
         @Override
         public void startCount(String name,CountBean bean) {
             if(!mapData.containsKey(name)){
-                CountBean countBean = new CountBean(name,false,200);
+                CountBean countBean = new CountBean(name,false,20);
                 mapData.put(name,countBean);
             }else{
                 mapData.put(name,bean);
@@ -75,7 +74,8 @@ public class TimerService extends Service {
                         }
                         @Override
                         public void onFinish() {
-
+                            CountBean countBean = new CountBean(name,false,0);
+                            mapData.put(name,countBean);
                         }
                     }.start();
                     countDownTimerList.add(countDownTimer);

@@ -38,14 +38,19 @@ public class FirstActivity extends AppCompatActivity {
         initialCountBean = dataMap.get(FirstActivity.this.getLocalClassName());
         timerBinder.startCount(FirstActivity.this.getLocalClassName(), initialCountBean);
         if(initialCountBean ==null){
-            initialCountBean =  new CountBean(FirstActivity.this.getLocalClassName(),false,200);
+            initialCountBean =  new CountBean(FirstActivity.this.getLocalClassName(),false,20);
         }
         tv.setText(initialCountBean.getCountTime()+"");
         if(initialCountBean.isStartCount()){
-            btn.setText("暂停计时");
-            startCount();
+                btn.setText("暂停计时");
+                startCount();
         }else{
-            btn.setText("开始计时");
+            if(initialCountBean.getCountTime()==0){
+                btn.setText("重新计时");
+
+            }else {
+                btn.setText("开始计时");
+            }
         }
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +60,9 @@ public class FirstActivity extends AppCompatActivity {
                     btn.setText(" 开始计时");
                     initialCountBean.setStartCount(false);
                 }else{
+                    if(initialCountBean.getCountTime()==0){
+                        initialCountBean.setCountTime(20);
+                    }
                     btn.setText("暂停计时");
                     initialCountBean.setStartCount(true);
                 }
@@ -82,7 +90,11 @@ public class FirstActivity extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-
+                countBean.setCountTime(0);
+                countBean.setStartCount(false);
+                initialCountBean = countBean;
+                dataMap.put(FirstActivity.this.getLocalClassName(), countBean);
+                btn.setText(" 重新计时");
             }
         }.start();
     }
